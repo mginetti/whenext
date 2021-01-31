@@ -72,7 +72,7 @@ export default {
   name: "Home",
   data() {
     return {
-      turn: false,
+      turn: false
     };
   },
   mounted() {
@@ -82,19 +82,19 @@ export default {
       glare: true,
       "max-glare": 1,
       gyroscope: true,
-      gyroscopeMinAngleX: -45,
-      gyroscopeMaxAngleX: 45,
-      gyroscopeMinAngleY: -45,
-      gyroscopeMaxAngleY: 45,
+      gyroscopeMinAngleX: -25,
+      gyroscopeMaxAngleX: 25,
+      gyroscopeMinAngleY: -25,
+      gyroscopeMaxAngleY: 25
     });
-  },
+  }
 };
 </script>
 
 <style lang="scss">
 .home {
   height: 100vh;
-  background: linear-gradient(45deg, #c8a2c8, purple);
+  background: linear-gradient(45deg, #c8a2c8, #800080);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -141,7 +141,7 @@ export default {
         color: white;
       }
       .n {
-        color: rgb(253, 185, 59);
+        color: #fdb93b;
       }
     }
 
