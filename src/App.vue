@@ -7,14 +7,6 @@
 <script>
 export default {
   name: "app",
-  data() {
-    return {
-      user: {}
-    };
-  },
-  created() {
-    // authentication state managament
-  }
 };
 </script>
 
