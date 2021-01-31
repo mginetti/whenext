@@ -52,8 +52,8 @@
               }}</span>
             </div>
             <div class="action">
-              <button @click="turn = !turn">
-                <img src="/sync-alt-solid.svg" />
+              <button @click="turn = !turn" name="gira">
+                <img src="/sync-alt-solid.svg" alt="girami" />
               </button>
             </div>
           </div>
@@ -72,7 +72,7 @@ export default {
   name: "Home",
   data() {
     return {
-      turn: false
+      turn: false,
     };
   },
   mounted() {
@@ -85,9 +85,9 @@ export default {
       gyroscopeMinAngleX: -25,
       gyroscopeMaxAngleX: 25,
       gyroscopeMinAngleY: -25,
-      gyroscopeMaxAngleY: 25
+      gyroscopeMaxAngleY: 25,
     });
-  }
+  },
 };
 </script>
 
