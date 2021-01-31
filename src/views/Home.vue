@@ -64,10 +64,6 @@
 </template>
 
 <script>
-import VueCountdownTimer from "vuejs-countdown-timer/";
-import VanillaTilt from "vanilla-tilt";
-import Vue from "vue";
-Vue.use(VueCountdownTimer);
 export default {
   name: "Home",
   data() {
@@ -75,19 +71,7 @@ export default {
       turn: false,
     };
   },
-  mounted() {
-    VanillaTilt.init(document.querySelector(".card"), {
-      max: 20,
-      speed: 300,
-      glare: true,
-      "max-glare": 1,
-      gyroscope: true,
-      gyroscopeMinAngleX: -25,
-      gyroscopeMaxAngleX: 25,
-      gyroscopeMinAngleY: -25,
-      gyroscopeMaxAngleY: 25,
-    });
-  },
+
 };
 </script>
 
@@ -112,15 +96,6 @@ export default {
     backdrop-filter: blur(40px);
     @media screen and(max-width: 45em) {
       width: 90%;
-    }
-
-    &--blur {
-      position: absolute;
-      border-radius: 20px;
-      width: 100%;
-      height: 100%;
-      background: rgba(197, 197, 197, 0.2);
-      filter: blur(1px);
     }
 
     &--content {
@@ -175,6 +150,10 @@ export default {
             &:active {
               border: none;
             }
+          }
+          img {
+            height: 25px;
+            width: 25px;
           }
         }
 
