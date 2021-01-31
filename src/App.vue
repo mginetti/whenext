@@ -6,17 +6,16 @@
 
 <script>
 export default {
-  name: 'app',
+  name: "app",
   data() {
     return {
-      user: { },
-    }
+      user: {}
+    };
   },
   created() {
     // authentication state managament
-    
   }
-}
+};
 </script>
 
 <style>
@@ -25,6 +24,6 @@ export default {
   margin: 0;
   box-sizing: border-box;
 
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 </style>
