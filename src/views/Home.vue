@@ -8,54 +8,57 @@
         </div>
         <div class="card--body">
           <div class="timer">
-            <vue-countdown-timer
-              :start-time="new Date()"
-              :end-time="new Date(2021, 1, 12, 11, 30).getTime()"
-              :interval="1000"
-              label-position="begin"
-              :end-text="'Siamo insieme😍'"
-              :day-txt="':'"
-              :hour-txt="':'"
-              :minutes-txt="':'"
-              :seconds-txt="''"
-              :class="{ 'd-none': turn }"
-              class="vue-countdown-timer"
-            >
-              <template #countdown="{ props }">
-                <div class="countdown">
-                  <span
-                    ><span class="number">{{ props.days }} </span> ~ Days</span
+            <slider animation="fade" :autoplay="false">
+              <slider-item>
+                <vue-countdown-timer
+                  :start-time="new Date()"
+                  :end-time="dateArrive.getTime()"
+                  :interval="1000"
+                  label-position="begin"
+                  :end-text="'Siamo insieme😍'"
+                  :day-txt="':'"
+                  :hour-txt="':'"
+                  :minutes-txt="':'"
+                  :seconds-txt="''"
+                  :class="{ 'd-none': turn }"
+                  class="vue-countdown-timer"
+                >
+                  <template #countdown="{ props }">
+                    <div class="countdown">
+                      <span
+                        ><span class="number">{{ props.days }} </span> ~
+                        Days</span
+                      >
+                      <span
+                        ><span class="number">{{ props.hours }} </span> ~
+                        Hours</span
+                      >
+                      <span
+                        ><span class="number">{{ props.minutes }} </span> ~
+                        Minutes</span
+                      >
+                      <span
+                        ><span class="number">{{ props.seconds }} </span> ~
+                        Seconds</span
+                      >
+                    </div>
+                  </template>
+                </vue-countdown-timer>
+              </slider-item>
+
+              <slider-item>
+                <div class="arrive">
+                  <span class="text">Ci vediamo il: </span>
+                  <span class="date">
+                    {{ dateArrive.toLocaleDateString() }}</span
                   >
-                  <span
-                    ><span class="number">{{ props.hours }} </span> ~
-                    Hours</span
-                  >
-                  <span
-                    ><span class="number">{{ props.minutes }} </span> ~
-                    Minutes</span
-                  >
-                  <span
-                    ><span class="number">{{ props.seconds }} </span> ~
-                    Seconds</span
-                  >
+                  <span class="text">Alle: </span>
+                  <span class="date">{{
+                    dateArrive.toLocaleString().split(" ")[1]
+                  }}</span>
                 </div>
-              </template>
-            </vue-countdown-timer>
-            <div :class="{ 'd-none': !turn }" class="arrive">
-              <span class="text">Arrivo il: </span>
-              <span class="date">
-                {{ new Date(2021, 1, 12, 11, 30).toLocaleDateString() }}</span
-              >
-              <span class="text">Alle: </span>
-              <span class="date">{{
-                new Date(2021, 1, 12, 11, 30).toLocaleString().split(" ")[1]
-              }}</span>
-            </div>
-            <div class="action">
-              <button @click="turn = !turn" name="gira">
-                <img src="/sync-alt-solid.svg" alt="girami" />
-              </button>
-            </div>
+              </slider-item>
+            </slider>
           </div>
         </div>
       </div>
@@ -64,14 +67,19 @@
 </template>
 
 <script>
+import { Slider, SliderItem } from "vue-easy-slider";
 export default {
   name: "Home",
   data() {
     return {
+      dateArrive: new Date(2021, 1, 12, 11, 55),
       turn: false,
     };
   },
-
+  components: {
+    Slider,
+    SliderItem,
+  },
 };
 </script>
 
@@ -122,9 +130,9 @@ export default {
 
     &--body {
       height: 100%;
-      display: flex;
+      /*  display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: center; */
       .timer {
         transition: all 0.3s;
         height: 100%;
@@ -136,6 +144,20 @@ export default {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+
+        .slider {
+          position: relative;
+          height: 100% !important;
+        }
+
+        .slider-item {
+          padding: 0.4em;
+        }
+
+        .slider-btn {
+          background: none;
+          display: none;
+        }
 
         .action {
           height: 15%;
