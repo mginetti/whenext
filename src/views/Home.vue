@@ -72,7 +72,7 @@ export default {
   name: "Home",
   data() {
     return {
-      dateArrive: new Date(2021, 2, 19, 20, 55),
+      dateArrive: new Date(2021, 3, 9, 20, 55),
       turn: false,
     };
   },
